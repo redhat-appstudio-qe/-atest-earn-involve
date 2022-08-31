@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app.kubernetes.io/created-by: application-service
+    app.kubernetes.io/instance: example-2
+    app.kubernetes.io/managed-by: kustomize
+    app.kubernetes.io/name: java-springboot
+    app.kubernetes.io/part-of: example
+  name: example-2
+  namespace: atest
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/instance: example-2
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app.kubernetes.io/instance: example-2
+    spec:
+      containers:
+      - image: quay.io/redhat-appstudio-qe/test-images-protected:atest-example-2
+        imagePullPolicy: Always
+        name: container-image
+        resources: {}
+status: {}
