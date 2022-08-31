@@ -29,4 +29,6 @@ spec:
         resources:
           limits:
             cpu: "3"
+          requests:
+            cpu: 500m
 status: {}
